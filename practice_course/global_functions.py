@@ -62,6 +62,10 @@ def do_something ():
 
    globals()["b"] = 9 # this is another method of reassigning a global variable while being in touch with the local one
    b = 7
+   def second_scopped ():
+      nonlocal b # used to get the variable from the parent function scope in the child function scope
+      b = 8
+   second_scopped()
 
    print(b)
 do_something()
