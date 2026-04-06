@@ -169,14 +169,19 @@ class AsyncFunctions:
       await self.details() # awaiting the details method to complete before executing the next line of code
       print('more async details')
 
-   def run_async_functions(self):
+   async def run_functions(self):
       # A synchronous way to run the asynchronous function
-      asyncio.run(self.more_details()) # running the asynchronous function more_details without async and await in the function call.
+      await  self.more_details() # running the asynchronous function more_details with await because you can't call asyncio.run() inside another asyncio.run() or an already running event loop, so we use await instead
+      # Inside async functions → only use await, Never mix asyncio.run() and await incorrectly
 
       # An asynchronous way to wait for the asynchronous function to be completed before running the callback function
-      fetch_details = lambda a, b: a + b  
+      async def fetch_details (a: int, b: int) -> int:
+         await asyncio.sleep(1)
+         return a + b
+      
       task = asyncio.create_task(fetch_details(5, 10)) # creating an asynchronous task
       task.add_done_callback(lambda task_response: print(f"Task result: {task_response.result()}")) # adding a callback to the task to print the result when the task is done
+      await task  # ✅ ensure it runs
 
 async def task1():
    await asyncio.sleep(1) # SetTimeout for 1 second or delay of 1 second to simulate an asynchronous operation
@@ -191,6 +196,41 @@ async def main_async():
    print(results)
 
 async_functions = AsyncFunctions()
-async_functions.run_async_functions()
+asyncio.run(async_functions.run_functions())
 asyncio.run(async_functions.more_details())
 asyncio.run(main_async())
+
+
+
+
+
+
+# Threading and Multiprocessing
+from threading import  *
+from time import sleep
+
+class HelloThread(Thread):
+   def run(self):
+      for i in range(5):
+         print('Hello from Thread 1')
+         sleep(1)
+
+class HiThread(Thread):
+   def run(self):
+      for i in range(5):
+         print('Hi from Thread 2')
+         sleep(1)
+
+hello = HelloThread()
+hi = HiThread()
+
+hello.start() # Starting the first thread to run the run method of HelloThread class
+sleep(0.2) # Collision Avoidance: Adding a small delay to allow the first thread to start before starting the second thread, this is not necessary but it can help to see the interleaving of the two threads' outputs more clearly.
+hi.start() # Starting the second thread to run the run method of HiThread class
+
+print('Displaying this print after hello thread and hi thread first execution, before continuing with their next execution')
+
+hello.join() # Waiting for the first thread to finish before proceeding with the main thread
+hi.join() # Waiting for the second thread to finish before proceeding with the main thread
+
+print("Both threads have finished execution")
