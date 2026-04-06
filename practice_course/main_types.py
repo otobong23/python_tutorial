@@ -27,6 +27,7 @@ my_numbers: list[int] = [1, 2, 3, 4, 5] # List are ordered collections of elemen
 my_numbers.append(6) # Adding an element to the list
 my_numbers.pop() # Removing the last element from the list
 print(min(my_numbers), max(my_numbers), sum(my_numbers)) # Output: 1 5 15 - Finding the minimum, maximum, and sum of the numbers in the list
+print(len(my_numbers), my_numbers.__len__()) # Output: 5 5 - means of getting the length of the list
 
 # Set
 my_set: set[str] = {"apple", "banana", "cherry"} # Sets are unordered collections of unique elements

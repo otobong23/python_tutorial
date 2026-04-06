@@ -1,5 +1,6 @@
 
 # File Handling
+"""# File Handling using with statement - This is a comment too"""
 
 # Reading from a file
 my_file = open('./files/my_file.txt', 'r') # Opening the file in read mode
