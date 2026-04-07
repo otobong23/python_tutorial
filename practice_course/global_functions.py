@@ -125,3 +125,13 @@ print(__name__) # Output: __main__ or <module_name> - this variable holds the na
 # if the script is run directly, it will be __main__. 
 # If the script is imported as a module in another script, it will hold the name of the module <module_name>.
 # This is often used to check if a script is being run directly or imported as a module.
+
+
+# Zip - The zip function can be use to create a key value pair object with a set of tuple, list, set
+names = ["Miracle", "Favor", "Princess", "Precious"]
+companies = ("Dell", "Apple", "Gucci", "MS")
+
+Dictionary_zipped = dict(zip(names, companies)) # A dictionary made of a zipped list and tuple
+Tuple_zipped = tuple(zip(names, companies)) # A Tuple made of a zipped list and tuple
+print(Dictionary_zipped) # Output: {'Miracle': 'Dell', 'Favor': 'Apple', 'Princess': 'Gucci', 'Precious': 'MS'}
+print(Tuple_zipped) # Output: (('Miracle', 'Dell'), ('Favor', 'Apple'), ('Princess', 'Gucci'), ('Precious', 'MS'))

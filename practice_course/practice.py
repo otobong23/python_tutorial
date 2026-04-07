@@ -35,4 +35,74 @@ def factorial_function(n: int) -> int:
    else:
       return n * factorial_function(n - 1) # Recursive call to calculate the factorial of n
 
-print(factorial_function(5))
+# print(factorial_function(5))
+
+
+# Linear search
+def search(param_list: list[int], search_for: int) -> tuple[bool, int | None]: # for ordered or unordered list
+   i = 0
+   variable_position = -1
+   while i < len(param_list):
+      if param_list[i] == search_for:
+         variable_position = i
+         return (True, variable_position + 1)
+      i = i + 1
+   return (False, None)
+
+# is_it_available, position = search([13, 43, 12, 44, 1, 3], 44)
+# print(is_it_available, position)
+
+
+# Binary Search
+def binary_search(param_list: list[int], search_for: int) -> tuple[bool, int | None]: # for order list
+   lower_band = 0
+   upper_band = len(param_list)
+   variable_position = -1
+
+   while lower_band <= upper_band:
+      mean_value = (lower_band + upper_band) // 2
+      if param_list[mean_value] == search_for:
+         variable_position = mean_value
+         return (True, variable_position + 1)
+      else:
+         if param_list[mean_value] < search_for:
+            lower_band = mean_value + 1
+         else:
+            upper_band = mean_value - 1
+   return (False, None)
+
+# is_it_available, position = search([1, 3, 12, 13, 43, 44], 44)
+# print(is_it_available, position)
+
+
+
+
+# Bubble Sorting
+def Sort_list(nums: list[int]) -> None:
+   for i in range(len(nums) -1, 0, -1):
+      for j in range(i):
+         if nums[j] > nums[j + 1]:
+            temp = nums[j]
+            nums[j] = nums[j + 1]
+            nums[j + 1] = temp
+
+# unordered_list = [13, 43, 12, 44, 1, 3]
+# Sort_list(unordered_list)
+# print(unordered_list)
+
+# Selection Sorting
+def Selection_sort(nums: list[int]) -> None:
+   for i in range(len(nums) -1):
+      main_position = i
+
+      for j in range(i, len(nums)):
+         if nums[j] < nums[main_position]:
+            main_position = j
+
+      temp = nums[i]
+      nums[i] = nums[main_position]
+      nums[main_position] = temp
+
+# unordered_list = [13, 43, 12, 44, 1, 3]
+# Selection_sort(unordered_list)
+# print(unordered_list)
