@@ -3,7 +3,7 @@
 """# File Handling using with statement - This is a comment too"""
 
 # Reading from a file
-my_file = open('./files/my_file.txt', 'r') # Opening the file in read mode
+my_file = open('./files/my_file.txt', 'r') # Opening the file in read mode, the file can be accessed through relative path
 # print(my_file.read()) # Output: the entire content of the file
 # print(my_file.readline()) # Output: Hello world from my text file - this will read the first line of the file
 print(my_file.readline(3)) # Output: Hel - this will read the first 3 characters of the first line
