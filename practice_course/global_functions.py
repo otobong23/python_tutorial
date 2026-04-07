@@ -35,7 +35,7 @@ print(f"Argument 1: {argument_1} - type: {type(argument_1)}, Argument 2: {argume
 
 
 
-# functions
+# functions, rest parameters, kwargs paramters, destructuring
 def print_with_parameters (name: str, age: int):
    print(name, age)
 print_with_parameters(age=22, name="Miracle") # Output: Miracle 22
@@ -49,6 +49,20 @@ def print_rest_parameter_with_argument (name, **the_rest_with_argument): # ** - 
    print(name, the_rest_with_argument)
 
 print_rest_parameter_with_argument('miracle', age=22, level="fullstack", year="year 2") # Output: miracle {'age': 22, 'level': 'fullstack', 'year': 'year 2'} - ** - the listed params with the rest in a dictionary
+
+
+# Destructuring
+destructure_dict = {"name": "Miracle", "age": 22}
+destructure_list = [1, 2, 3, 4, 5]
+
+print({**destructure_dict, "year": "year 2"})   # Output: {'name': 'Miracle', 'age': 22, 'year': 'year 2'}
+print([*destructure_list, 6, 7])    # Output: [1, 2, 3, 4, 5, 6, 7]
+
+first, second = destructure_list    # first = 1, second = 2
+first_from_list, *rest = destructure_list    # first_from_list = 1, *rest = [2, 3, 4, 5]
+first_a, _, last_from_list = destructure_list   # first_a = 1, last_from_list = 5, _ ignores the rest from the list
+
+
 
 
 
