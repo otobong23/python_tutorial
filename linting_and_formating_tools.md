@@ -21,7 +21,7 @@ isort automatically organizes and sorts Python import statements. This keeps imp
 ### 4. Ruff (All-in-One Tool)
 
 Ruff is a modern tool that combines linting and formatting into a single fast solution. It can replace Flake8, Black, and isort in many projects.
-Due to its speed and simplicity, Ruff is increasingly becoming the preferred choice for Python development.
+Due to its speed and simplicity, Ruff is increasingly becoming the preferred choice for Python development. Ruff Extension can be installed in your python project
 
 ---
 
