@@ -106,3 +106,9 @@ def Selection_sort(nums: list[int]) -> None:
 # unordered_list = [13, 43, 12, 44, 1, 3]
 # Selection_sort(unordered_list)
 # print(unordered_list)
+
+
+wikipedia = "www.wikipedia.org"
+print(wikipedia.lstrip('w'))  ## wikipedia.org
+print(wikipedia.lstrip('w.')) ## ikipedia.org
+print(wikipedia.removeprefix('www.'))  ## wikipedia.org
